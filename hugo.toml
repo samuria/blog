@@ -32,8 +32,3 @@ weight = 2
 name = 'about'
 url = '/about'
 weight = 3
-
-[markup]
-[markup.goldmark]
-[markup.goldmark.extensions]
-footnote = true
