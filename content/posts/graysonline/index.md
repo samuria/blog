@@ -83,7 +83,7 @@ Murray_Identity={a19664a9-694c-412d-9507-ef6ce2f0f1ae}
 
 This looks just like the UserID we saw from the other request, the one to get the bidder details 😳
 
-So what if I just replace my own `Murray_Identity` to ANY of the ones I got from the list of bidders and forward the request? Do I try? I have to, right? I mean I'm sure it won't do anything and will just redirect me somewhere else... right?? Using Burp Suite (another elite hacking tool), we can intercept request, change the `Murray_Identity` and forward it like nothing happened.
+So what if I just replace my own `Murray_Identity` [^4] to ANY of the ones I got from the list of bidders and forward the request? Do I try? I have to, right? I mean I'm sure it won't do anything and will just redirect me somewhere else... right?? Using Burp Suite (another elite hacking tool), we can intercept the request, change the `Murray_Identity` and forward it like nothing happened.
 
 ## Crimes(?)
 {{< figure src="images/muh-details.png" class="center-figure" title="Me looking at things I shouldn't be looking at? maybe?" >}}
@@ -92,18 +92,18 @@ So what if I just replace my own `Murray_Identity` to ANY of the ones I got from
 
 It's just *there*.
 
-At this point I was fairly sure I was looking at the some information that was not meant for me to see and I was *kinda* worried that I was somehow doing something wrong, but like, not enough to stop.
+At this point I was fairly sure I was looking at the some information that was not *meant* for me to see and I was *kinda* worried that I was somehow doing something wrong, but like, not enough to stop.
 
 **...anything *else* in this page?**\
 Well, damn if all this info is in this treasure trove of computer spaghetti, maybe there's wayyyy more. Perhaps this HTML contains the lost launch codes to the Sydney Opera House, or Harold Holt [^2]
 
-What if I click on the "Payment" tab and intercept the request like did above, surely they must have some extra security 🔐 on veeerrry sensitive data?
+What if I click on the "Payment" tab and intercept the request like did I above, surely they must have some extra security 🔐 on veeerrry sensitive data?
 
 {{< figure src="images/money-tab.png" class="center-figure" title="This is better, they seem to be only fetching the last 4 digits of card numbers, no pre-population of field going on here" >}}
 
 Does this mean I can go through all the pages one by one, as if *someone else* is logged in? I mean I *wanted* to, but I didn't [^3]
 
-# what have i done
+## What have i done
 Googling for "how many customers does grays have?" returns [3 million customers](https://www.grays.com/content.aspx?block=OpenForBusiness). Obviously only the people who actually *bid* on items were exposed to this vulnerability. But that's still *a lot* of people.
 
 I'd now found people's:
@@ -112,8 +112,59 @@ I'd now found people's:
 - Home addresses
 - Last 4 digits of credit cards
 
-By this point I'd had enough clicking around and was like *oh jeez oh boy oh jeez*. *I gotta get someone somehow to take a look at this*. I wasn't just going to email grays "hey i found thousands (millions?) of people's leaked info on your website", because [that's how you go to jail](https://www.bleepingcomputer.com/news/security/ethical-hacker-exposes-magyar-telekom-vulnerabilities-faces-8-years-in-jail/) 
+## What else?
+
+The website periodically sends out a request called GetLoginStatus, this is to check if you're still logged in, so that it can notify you if you have been outbid on the not working car you want to buy. Replacing the `Murray_Identity` [^5] header in the request returns *stuff*.
+
+{{< figure src="images/more-info.png" class="center-figure" title="oh_no_again.jpg" >}}
+
+Page refreshes and i'm given a whole bunch of data that I wasn't supposed to be given. Hold on....
+
+{{< figure src="images/login-horror.png" class="center-figure" >}}
+
+I WAS LITERALLY LOGGED IN AS SOMEONE ELSE.
+
+Intrusive thoughts took over and I had a sudden realisation, I could buy some poor soul this monstrosity and they couldn't do anything about it.
+
+{{< figure src="images/ugly-car.avif" class="center-figure" title="i could have bought someone a bathtub on wheels" >}}
+
+By this point I'd had enough clicking around and was like *oh jeez oh boy oh jeez*. *I gotta get someone somehow to take a look at this*. I wasn't just going to email grays "hey i found thousands (millions?) of people's leaked info on your website", because [that's how you go to jail](https://www.bleepingcomputer.com/news/security/ethical-hacker-exposes-magyar-telekom-vulnerabilities-faces-8-years-in-jail/).
+
+## Disclosing the problem
+I've always thought about the issue and complexity of disclosing a vulnerability when you *accidentally* find it:
+- how do i contact the company?
+- what do i say?
+- have i done a crime?
+
+First thought I had is to ask my fellow software engineer friend, i don't really have a good explanation for this so i'm just gonna post the screenshots.
+{{< figure src="images/friend-advice.png" class="center-figure" title="The planet may be dying, but we live in a truly unparalleled age of content." >}}
+
+He suggested I take up a lawyer's advice, followed by... "just ask reddit bro". I contacted *a lot* of people about this. If my calculations are correct [^6], I called at least 10 friends and other people in the *hacker industry* who may have the slightest clue on what to do [^7]
+
+## trying to ask a lawyer if I gone and done a crime
+Before I went and told everyone about my HTML frolicking, I spent like 3 days calling legal aid numbers, lawyers, and otherwise trying to figure out if I'd done a crime [^8].
+
+During this time, I didn't tell *anyone* what I'd done. I asked if any laws would be broken if "someone" had "logged into a website accidentally using someone else's publicly available info and found personal information". Do you see how that's not even a lie? I'm starting to see how lawyers do it.
+
+## asking an actual professional for help
+
+Then I remembered about [Troy Hunt](https://www.troyhunt.com/), he knows the [pain of disclosure](https://www.troyhunt.com/breach-disclosure-blow-by-blow-heres-why-its-so-hard/), surely he can help me out.
+
+I prepare a *professionally* written email to Troy explaining what my eyes had seen, and await his response.
+
+{{< figure src="images/troy-email-1.png" class="center-figure" title="Email response from Troy, who thinks I am not scared of jail" >}}
+
+Yeah that's not gonna work Troy. Too many horror stories of innocent(?) security researchers ending up in jail because they want to *responsibly* disclose vulnerabilities.
+
+{{< figure src="images/troy-agrees.png" class="center-figure" title="he gets it" >}}
+
+So I tell him exactly what had happened, and how to replicate what I had done.
 
 [^1]: not that I was hoping to find anything i swear
 [^2]: Harold Holt was a former Prime Minister and we... lost him? He disappeared while going for a swim one morning. This is not a joke. We named [Harold Holt Memorial Swim Centre](https://en.wikipedia.org/wiki/Harold_Holt_Memorial_Swimming_Centre) after him. I repeat, this is *not* a joke.
 [^3]: you'll have to trust me on this
+[^4]: Whatever that means
+[^5]: Still not sure what it means
+[^6]: I've always wanted to say that
+[^7]: They didn't
+[^8]: I'm not really sure what my plan was. If I had done a crime, what was I gonna do, not report the publicly available sensitive data of thousands of people?

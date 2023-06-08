@@ -27,3 +27,13 @@ weight = 1
 name = 'posts'
 url = '/posts'
 weight = 2
+
+[[menu.main]]
+name = 'about'
+url = '/about'
+weight = 3
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.extensions]
+footnote = true
