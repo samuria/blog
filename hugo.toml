@@ -1,0 +1,34 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Umar Ahmed'
+theme = 'archie'
+pygmentsstyle = "monokai"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+[params]
+mode = 'auto'
+useCDN = false
+subtitle = 'making and breaking stuff, more often the latter'
+mathjax = true
+katex = true
+
+[[params.social]]
+name = 'GitHub'
+icon = 'github'
+url = 'https://github.com/samuria'
+
+[[menu.main]]
+name = 'home'
+url = '/'
+weight = 1
+
+[[menu.main]]
+name = 'posts'
+url = '/posts'
+weight = 2
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
