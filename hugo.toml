@@ -10,8 +10,8 @@ pygmentscodefencesguesssyntax = true
 mode = 'auto'
 useCDN = false
 subtitle = 'making and breaking stuff, more often the latter'
-mathjax = true
-katex = true
+mathjax = false
+katex = false
 
 [[params.social]]
 name = 'GitHub'
@@ -27,8 +27,3 @@ weight = 1
 name = 'posts'
 url = '/posts'
 weight = 2
-
-[markup]
-[markup.goldmark]
-[markup.goldmark.renderer]
-unsafe = true

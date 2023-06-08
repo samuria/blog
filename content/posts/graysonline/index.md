@@ -1,7 +1,7 @@
 ---
 title: "Finding a vulnerability when you just want to buy a car"
 date: 2023-06-07T02:01:58+05:30
-description: "You have a to-do list that scrolls on for days. You are managing multiple projects, getting lots of email and messages on different messaging systems, managing finances and personal health habits and so much more."
+description: "Read my story on trying not to get arrested, spoiler: haaa ya thought!"
 ---
 
 About 2 months ago, I was browsing the car auctions for broken BMWs on a saturday night, as you do. It's well known that all Australian auction platforms compete with each other on who has the worst website, according to literally everyone I know that has used one (or more) of these sites. 
@@ -47,7 +47,7 @@ While we have the inspect element open (and on the 'network' tab), we see the ne
 ]
 ```
 
-At a first glance, I don't reallyyy get anything out of this, `UserInitials` is there, but nothing else that seemed "oh no" worthy <sup>(not that I was hoping to find anything i swear)<sup>.
+At a first glance, I don't reallyyy get anything out of this, `UserInitials` is there, but nothing else that seemed "oh no" worthy[^1]
 
 ## More clicking around
 
@@ -88,4 +88,32 @@ So what if I just replace my own `Murray_Identity` to ANY of the ones I got from
 ## Crimes(?)
 {{< figure src="images/muh-details.png" class="center-figure" title="Me looking at things I shouldn't be looking at? maybe?" >}}
 
-I guess I was now looking at private info of some guy named Mark<sup>that wasn't the actual name i was looking at</sup>
+**oh no**
+
+It's just *there*.
+
+At this point I was fairly sure I was looking at the some information that was not meant for me to see and I was *kinda* worried that I was somehow doing something wrong, but like, not enough to stop.
+
+**...anything *else* in this page?**\
+Well, damn if all this info is in this treasure trove of computer spaghetti, maybe there's wayyyy more. Perhaps this HTML contains the lost launch codes to the Sydney Opera House, or Harold Holt [^2]
+
+What if I click on the "Payment" tab and intercept the request like did above, surely they must have some extra security 🔐 on veeerrry sensitive data?
+
+{{< figure src="images/money-tab.png" class="center-figure" title="This is better, they seem to be only fetching the last 4 digits of card numbers, no pre-population of field going on here" >}}
+
+Does this mean I can go through all the pages one by one, as if *someone else* is logged in? I mean I *wanted* to, but I didn't [^3]
+
+# what have i done
+Googling for "how many customers does grays have?" returns [3 million customers](https://www.grays.com/content.aspx?block=OpenForBusiness). Obviously only the people who actually *bid* on items were exposed to this vulnerability. But that's still *a lot* of people.
+
+I'd now found people's:
+- Full names
+- Phone numbers
+- Home addresses
+- Last 4 digits of credit cards
+
+By this point I'd had enough clicking around and was like *oh jeez oh boy oh jeez*. *I gotta get someone somehow to take a look at this*. I wasn't just going to email grays "hey i found thousands (millions?) of people's leaked info on your website", because [that's how you go to jail](https://www.bleepingcomputer.com/news/security/ethical-hacker-exposes-magyar-telekom-vulnerabilities-faces-8-years-in-jail/) 
+
+[^1]: not that I was hoping to find anything i swear
+[^2]: Harold Holt was a former Prime Minister and we... lost him? He disappeared while going for a swim one morning. This is not a joke. We named [Harold Holt Memorial Swim Centre](https://en.wikipedia.org/wiki/Harold_Holt_Memorial_Swimming_Centre) after him. I repeat, this is *not* a joke.
+[^3]: you'll have to trust me on this

@@ -20,6 +20,8 @@
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
 	{{ end -}}
 
+	<link rel="stylesheet" href="https://unpkg.com/littlefoot/dist/littlefoot.css" />
+	
 	{{- template "_internal/opengraph.html" . -}}
 	{{- template "_internal/twitter_cards.html" . -}}
 	{{ if and (isset .Site.Params "social") (.Site.Params.useCDN | default false) -}}
