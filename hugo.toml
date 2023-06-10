@@ -1,6 +1,6 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = 'Umar Ahmed'
+title = 'samuria'
 theme = 'archie'
 pygmentsstyle = "monokai"
 pygmentscodefences = true
@@ -28,7 +28,7 @@ name = 'posts'
 url = '/posts'
 weight = 2
 
-[[menu.main]]
-name = 'about'
-url = '/about'
-weight = 3
+# [[menu.main]]
+# name = 'about'
+# url = '/about'
+# weight = 3

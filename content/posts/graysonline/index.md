@@ -2,6 +2,7 @@
 title: "Finding a vulnerability when you just want to buy a car"
 date: 2023-06-07T02:01:58+05:30
 description: "Read my story on trying not to get arrested, spoiler: haaa ya thought!"
+draft: true
 ---
 
 About 2 months ago, I was browsing the car auctions for broken BMWs on a saturday night, as you do. It's well known that all Australian auction platforms compete with each other on who has the worst website, according to literally everyone I know that has used one (or more) of these sites. 
@@ -158,7 +159,30 @@ Yeah that's not gonna work Troy. Too many horror stories of innocent(?) security
 
 {{< figure src="images/troy-agrees.png" class="center-figure" title="he gets it" >}}
 
-So I tell him exactly what had happened, and how to replicate what I had done.
+So I tell him exactly what had happened, and how to replicate what I had done, basically what you've read so far in this here blog post. And he got back to me almost immediately.
+
+{{< figure src="images/proud-troy.png" class="center-figure" title="wait, LinkedIn is actually useful for once?" >}}
+
+{{< figure src="images/grays-email.png" class="center-figure" title="email from an important person telling my the problem is no longer a problem anymore (not fully)" >}}
+
+## Closing credits
+
+### How it works
+The entirety of this vulnerability stems from exposing the unique user identifiers while viewing the bidding history for an auction lot. Without the user identifier, it would not be possible to swap the cookie session [^9]. Updating the session cookie based on one request header is a silly idea.
+
+### Timeline of events
+- Apr 22 - Issue found
+- Apr 22 - I realise the issue is much bigger than it is
+- Apr 23 - I learn from lawyers that I have not done a crime 💯
+- Apr 23 - I contact Troy Hunt in hopes of him assisting me with resposible disclosure
+- Apr 24 - Contacted important guy from Grays
+- Apr 25 - First part of issue fixed
+- Apr 26 - All parts of issue fixed
+- Apr 30 - I turn 25 🥳
+
+
+
+
 
 [^1]: not that I was hoping to find anything i swear
 [^2]: Harold Holt was a former Prime Minister and we... lost him? He disappeared while going for a swim one morning. This is not a joke. We named [Harold Holt Memorial Swim Centre](https://en.wikipedia.org/wiki/Harold_Holt_Memorial_Swimming_Centre) after him. I repeat, this is *not* a joke.
@@ -168,3 +192,4 @@ So I tell him exactly what had happened, and how to replicate what I had done.
 [^6]: I've always wanted to say that
 [^7]: They didn't
 [^8]: I'm not really sure what my plan was. If I had done a crime, what was I gonna do, not report the publicly available sensitive data of thousands of people?
+[^9]: Because you wouldn't have the user identifier
