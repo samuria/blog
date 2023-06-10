@@ -93,7 +93,7 @@ So what if I just replace my own `Murray_Identity` [^4] to ANY of the ones I got
 
 It's just *there*.
 
-At this point I was fairly sure I was looking at the some information that was not *meant* for me to see and I was *kinda* worried that I was somehow doing something wrong, but like, not enough to stop.
+At this point I was fairly sure I was looking at some information that was not *meant* for me to see and I was *kinda* worried that I was somehow doing something wrong, but like, not enough to stop.
 
 **...anything *else* in this page?**\
 Well, damn if all this info is in this treasure trove of computer spaghetti, maybe there's wayyyy more. Perhaps this HTML contains the lost launch codes to the Sydney Opera House, or Harold Holt [^2]
