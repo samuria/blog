@@ -154,10 +154,12 @@ header .main {
 
 h1 {
   font-size: 2.125rem;
+  line-height: 1.2em;
 }
 
 h2 {
   font-size: 1.875rem;
+  line-height: 1em;
 }
 
 h3 {
@@ -183,36 +185,6 @@ h4,
 h5,
 h6 {
   margin-top: 2em;
-}
-
-h1::before {
-  color: var(--maincolor);
-  content: '# ';
-}
-
-h2::before {
-  color: var(--maincolor);
-  content: '## ';
-}
-
-h3::before {
-  color: var(--maincolor);
-  content: '### ';
-}
-
-h4::before {
-  color: var(--maincolor);
-  content: '#### ';
-}
-
-h5::before {
-  color: var(--maincolor);
-  content: '##### ';
-}
-
-h6::before {
-  color: var(--maincolor);
-  content: '###### ';
 }
 
 .meta {
@@ -423,4 +395,24 @@ figcaption h4 {
 
 code {
   font-size: 14px;
+}
+
+.list {
+  margin-top: 50px;
+}
+
+.list-item {
+  padding: 24px;
+  background-color: rgb(46, 46, 51);
+  border: 2px solid var(--darkMaincolor);
+  border-radius: 8px;
+  transition: border-right-width 0.1s linear;
+}
+
+.list-item:hover {
+  border-right-width: 10px;
+}
+
+.entry-link {
+  text-decoration: none;
 }

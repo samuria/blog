@@ -7,7 +7,7 @@ pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
 [params]
-mode = 'auto'
+mode = 'dark'
 useCDN = false
 subtitle = 'making and breaking stuff, more often the latter'
 mathjax = false

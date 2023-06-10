@@ -6,22 +6,28 @@
 	<div class="content">
 		{{ partial "head.html" . }}
 
+		<div class="site-description">
+			{{- if isset .Site.Params "subtitle" -}}
+			<p>{{ .Site.Params.Subtitle | markdownify }}</p>
+			{{- end -}}
+		</div>
+
 		<main class="list">
-			<div class="site-description">
-				{{- if isset .Site.Params "subtitle" -}}
-				<p>{{ .Site.Params.Subtitle | markdownify }}</p>
-				{{- end -}}
-			</div>
+
 			{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 			{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
 			{{ range $paginator.Pages }}
-			<section class="list-item">
-				<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
-				<time>{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end
-					}}</time>
-				<br>{{ template "partials/pagedescription.html" . }}
-				<a class="readmore" href="{{ .RelPermalink }}">Read more ⟶</a>
-			</section>
+
+			<a href="{{ .RelPermalink }}" class="entry-link">
+				<article class="list-item">
+					<h4 class="title" style="margin-top: 0; margin-bottom: 5px;">{{.Title}}</h4>
+					<time style="font-size: .8rem">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span
+							class="draft-label">DRAFT</span> {{
+						end
+						}}</time>
+				</article>
+			</a>
+
 			{{ end }}
 			{{ template "partials/paginator.html" . }}
 		</main>
