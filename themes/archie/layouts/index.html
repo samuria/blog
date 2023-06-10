@@ -13,12 +13,9 @@
 		</div>
 
 		<main class="list">
-
 			{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 			{{ $paginator := .Paginate (where $pages "Params.hidden" "ne" true) }}
-			{{ range $paginator.Pages }}
-
-			<a href="{{ .RelPermalink }}" class="entry-link">
+			{{ range $paginator.Pages }} <a href="{{ .RelPermalink }}" class="entry-link">
 				<article class="list-item">
 					<h4 class="title" style="margin-top: 0; margin-bottom: 5px;">{{.Title}}</h4>
 					<time style="font-size: .8rem">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span
@@ -27,13 +24,11 @@
 						}}</time>
 				</article>
 			</a>
-
 			{{ end }}
 			{{ template "partials/paginator.html" . }}
 		</main>
 		{{ partial "footer.html" . }}
 	</div>
-
 </body>
 
 </html>
