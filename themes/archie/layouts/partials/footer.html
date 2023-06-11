@@ -9,17 +9,9 @@
     {{ dateFormat "2006" now }} {{ with .Site.Copyright }} {{ . }} | {{ end }}
   </div>
 </footer>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QW69RMV678"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag('js', new Date());
-
-  gtag('config', 'G-QW69RMV678');
-</script>
-
+{{ if not .Site.IsServer }}
+{{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
 
 {{- if (isset .Site.Params "social") -}}
 <script>
