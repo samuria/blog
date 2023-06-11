@@ -5,6 +5,7 @@ theme = 'archie'
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
+googleAnalytics = 'G-QW69RMV678'
 
 [params]
 mode = 'dark'
