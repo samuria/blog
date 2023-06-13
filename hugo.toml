@@ -1,22 +1,22 @@
-baseURL = 'http://example.org/'
+baseURL = 'http://chillax.zone/'
+googleAnalytics = 'G-QW69RMV678'
 languageCode = 'en-us'
-title = 'samuria'
-theme = 'archie'
-pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
-googleAnalytics = 'G-QW69RMV678'
+pygmentsstyle = "monokai"
+theme = 'archie'
+title = 'chillax.zone'
 
 [params]
-mode = 'dark'
-useCDN = false
-subtitle = 'making and breaking stuff, more often the latter'
-mathjax = false
 katex = false
+mathjax = false
+mode = 'dark'
+subtitle = 'making and breaking stuff, more often the latter'
+useCDN = false
 
 [[params.social]]
-name = 'GitHub'
 icon = 'github'
+name = 'GitHub'
 url = 'https://github.com/samuria'
 
 [[menu.main]]
